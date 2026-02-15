@@ -70,6 +70,113 @@
             filter: drop-shadow(0 4px 20px rgba(243, 156, 18, 0.4));
         }
 
+        .divine-portrait-container {
+            margin-bottom: 2rem;
+            animation: fadeInUp 1.5s ease-out 0.5s backwards;
+        }
+
+        .portrait-frame {
+            position: relative;
+            width: 280px;
+            height: 280px;
+            margin: 0 auto;
+            border-radius: 50%;
+            padding: 8px;
+            background: linear-gradient(135deg, var(--sacred-gold), #e67e22, var(--sacred-gold));
+            box-shadow: 
+                0 0 40px var(--mystic-glow),
+                0 0 80px rgba(243, 156, 18, 0.3),
+                inset 0 0 30px rgba(243, 156, 18, 0.2);
+            animation: rotateGlow 10s linear infinite;
+        }
+
+        .portrait-frame::before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            right: -15px;
+            bottom: -15px;
+            border-radius: 50%;
+            border: 2px solid var(--sacred-gold);
+            opacity: 0.3;
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        .portrait-frame::after {
+            content: '';
+            position: absolute;
+            top: -25px;
+            left: -25px;
+            right: -25px;
+            bottom: -25px;
+            border-radius: 50%;
+            border: 1px solid var(--sacred-gold);
+            opacity: 0.2;
+            animation: pulse 3s ease-in-out infinite 0.5s;
+        }
+
+        .divine-portrait {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid rgba(0, 0, 0, 0.3);
+            filter: brightness(1.05) contrast(1.1);
+            box-shadow: inset 0 0 50px rgba(243, 156, 18, 0.1);
+        }
+
+        .portrait-decoration {
+            position: absolute;
+            font-size: 2rem;
+            color: var(--sacred-gold);
+            text-shadow: 0 0 20px var(--mystic-glow);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .decoration-top {
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .decoration-bottom {
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .decoration-left {
+            left: -30px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .decoration-right {
+            right: -30px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .divine-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            color: var(--sacred-gold);
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: 2px;
+            text-shadow: 0 2px 10px rgba(243, 156, 18, 0.5);
+            animation: fadeIn 1.5s ease-out 1s backwards;
+        }
+
+        .divine-subtitle {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-style: italic;
+            margin-bottom: 1rem;
+            animation: fadeIn 1.5s ease-out 1.2s backwards;
+        }
+
         .greeting-card {
             background: linear-gradient(135deg, rgba(0, 0, 0, 0.75) 0%, rgba(20, 30, 48, 0.85) 100%);
             backdrop-filter: blur(20px);
@@ -276,6 +383,21 @@
             }
         }
 
+        @keyframes rotateGlow {
+            0%, 100% {
+                box-shadow: 
+                    0 0 40px var(--mystic-glow),
+                    0 0 80px rgba(243, 156, 18, 0.3),
+                    inset 0 0 30px rgba(243, 156, 18, 0.2);
+            }
+            50% {
+                box-shadow: 
+                    0 0 60px var(--mystic-glow),
+                    0 0 100px rgba(243, 156, 18, 0.4),
+                    inset 0 0 40px rgba(243, 156, 18, 0.3);
+            }
+        }
+
         @media (max-width: 768px) {
             .festival-name {
                 font-size: 1.8rem;
@@ -295,6 +417,19 @@
             
             .om-symbol {
                 font-size: 3rem;
+            }
+
+            .portrait-frame {
+                width: 220px;
+                height: 220px;
+            }
+
+            .divine-title {
+                font-size: 1.5rem;
+            }
+
+            .portrait-decoration {
+                font-size: 1.5rem;
             }
         }
     </style>
@@ -320,6 +455,18 @@
     <div class="container">
         <div class="om-symbol">ॐ</div>
         
+        <div class="divine-portrait-container">
+            <div class="portrait-frame">
+                <img src="/mnt/user-data/uploads/ChatGPT_Image_Feb_15__2026__03_36_56_PM.png" alt="Divine Goddess" class="divine-portrait">
+                <div class="portrait-decoration decoration-top">✦</div>
+                <div class="portrait-decoration decoration-bottom">✦</div>
+                <div class="portrait-decoration decoration-left">✦</div>
+                <div class="portrait-decoration decoration-right">✦</div>
+            </div>
+            <h2 class="divine-title">Goddess Parvati</h2>
+            <p class="divine-subtitle">The Divine Feminine Embodied</p>
+        </div>
+        
         <div class="greeting-card">
             <div class="greeting-content">
                 <h1 class="festival-name">Maha Shivaratri</h1>
@@ -334,14 +481,16 @@
                 <div class="romantic-message">
                     Just as Shiva and Parvati are inseparable,<br>
                     you are the divine blessing in my life.<br>
-                    On this sacred day, I thank the universe<br>
-                    for bringing you into my world.
+                    <br>
+                    You embody the grace, beauty, and strength of the Goddess herself.<br>
+                    On this sacred night, I thank the universe<br>
+                    for bringing such a divine soul into my world.
                     <br><br>
                     Har Har Mahadev 🕉️
                 </div>
                 
                 <div class="signature">
-                    You are the Parvathi to my universe ❤️
+                   You are the Parvathi to my universe ❤️
                 </div>
             </div>
         </div>
